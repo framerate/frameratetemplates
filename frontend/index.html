@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>framerate.info</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.4.0/coffee-script.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+		<script type="text/coffeescript">
+		$ ->
+			console.log 'hello world'
+			$('#debug_container').append('//coffeescript executing')
+		</script>
+
+		<style type="text/css">
+			*
+			{
+				font-family: 'Pontano Sans';
+				font-size: 24px;
+			}
+
+			h1
+			{
+				margin-bottom: 5px;
+			}
+
+			.debug_print
+			{
+				font-size: 12px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1>framerate.info template</h1>
+		<div id="debug_container" class="debug_print">
+		</div>
+	</body>
+</html>
