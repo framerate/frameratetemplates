@@ -24,7 +24,8 @@ module.exports = function (grunt) {
             {
                 files: 
                 {
-                    'static/js/scl.min.js': ['lib/client/js/*']
+                    'static/js/scl.min.js': ['lib/client/js/*'],
+                    'static/js/vendor.min.js': ['lib/client/vendor/*']
                 }
             }
         },
@@ -34,7 +35,7 @@ module.exports = function (grunt) {
         {
             server: 
             {
-                src: ['lib/*'],
+                src: ['lib/*.js'],
                 options: 
                 { 
                     node: true
@@ -55,7 +56,7 @@ module.exports = function (grunt) {
         {
             client:  
             { 
-                files: ['lib/client/js/*.js', 'lib/*.js', './*.js' ], 
+                files: ['lib/client/**/*.js', 'lib/*.js', './*.js' ], 
                 tasks: [ 'jshint', 'uglify'] 
             },
         },
