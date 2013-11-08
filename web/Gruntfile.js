@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         {
             server: 
             {
-                src: ['lib/server/js/*'],
+                src: ['lib/*'],
                 options: 
                 { 
                     node: true
