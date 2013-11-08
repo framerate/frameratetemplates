@@ -1,18 +1,21 @@
 module.exports = function (grunt) {
     grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
 
     // define source files and their destinations
     uglify: 
     {
         options: {
             mangle: true,
-            compress: true
+            compress: true,
+            banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                    '<%= grunt.template.today("yyyy-mm-dd") %> */'
         },
         js: {
             files: {
-                'build/static/js/scl.min.js': 
+                'static/js/scl.min.js': 
                     [
-                        'src/client/js/*'
+                        'lib/client/js/*'
                     ]
             }
         }
@@ -21,18 +24,20 @@ module.exports = function (grunt) {
 
    jshint: {
        server: {
-         src: ['src/server/js/*'],
+         src: ['lib/server/js/*'],
          options: { 
             node: true
          }
        },
        client: {
-         src: ['src/client/js/*'],
-         options: { globalstrict: true }
+         src: ['lib/client/js/*'],
+         options: { 
+            globalstrict: true 
+        }
        }
      },
     watch: {
-        client:  { files: 'src/client/js/*.js', tasks: [ 'jshint'] },
+        client:  { files: ['lib/client/js/*.js', 'lib/server/js/*.js' ], tasks: [ 'jshint', 'uglify'] },
     }
 });
 
