@@ -4,7 +4,8 @@
   "author": "justin@secretcowlevel.com",
   "private": "true",
   "dependencies": {
-    "newrelic": "~1.1.0"
+    "newrelic": "~1.1.0",
+    "express": "~3.4.4"
   },
   "version": "0.0.1",
   "devDependencies": {

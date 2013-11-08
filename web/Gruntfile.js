@@ -55,7 +55,7 @@ module.exports = function (grunt) {
         {
             client:  
             { 
-                files: ['lib/client/js/*.js', 'lib/server/js/*.js', './*.js' ], 
+                files: ['lib/client/js/*.js', 'lib/*.js', './*.js' ], 
                 tasks: [ 'jshint', 'uglify'] 
             },
         },
