@@ -35,10 +35,11 @@ module.exports = function (grunt) {
         {
             server: 
             {
-                src: ['lib/*.js'],
+                src: ['./*.js', 'lib/*.js'],
                 options: 
                 { 
-                    node: true
+                    'node': true,
+                    'quotmark': 'single',
                 }
             },
             client:
@@ -46,7 +47,8 @@ module.exports = function (grunt) {
                 src: ['lib/client/js/*'],
                 options: 
                 { 
-                    globalstrict: true 
+                    'globalstrict': true,
+                    'quotmark': 'single',
                 }
             }
         },
@@ -93,6 +95,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-notify');
 
     // Register the tasks to run
     grunt.registerTask('default', [ 'jshint', 'uglify', 'concurrent' ]);

@@ -51,7 +51,7 @@
         var day = datemap.day[date.getDay()];
         var month = datemap.month[date.getMonth()];
         var year = 1900 + date.getYear();
-        return day + " " + month + " " + date.getDate() + ", " + year;
+        return day + ' ' + month + ' ' + date.getDate() + ', ' + year;
     };
 
     ///////////////////////////////
