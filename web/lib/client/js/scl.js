@@ -7,9 +7,9 @@
 
     // safe reference (re: underscore.js)
     var scl = function(obj) {
-      if (obj instanceof scl) return obj;
-      if (!(this instanceof scl)) return new scl(obj);
-      this._wrapped = obj;
+        if (obj instanceof scl) { return obj; }
+        if (!(this instanceof scl)) { return new scl(obj);}
+        this._wrapped = obj;
     };
 
     // @TODO add node.js support

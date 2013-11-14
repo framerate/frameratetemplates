@@ -1,3 +1,4 @@
+'use strict';
 /*
 SECRET COW LEVEL - HTML5 Gruntfile Configuration
 Author: justin@secretcowlevel.com
@@ -11,18 +12,18 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         // this will uglify/minify/concat our files
-        uglify: 
+        uglify:
         {
-            options: 
+            options:
             {
                 mangle: true,
                 compress: true,
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                         '<%= grunt.template.today("yyyy-mm-dd") %> */'
             },
-            js: 
+            js:
             {
-                files: 
+                files:
                 {
                     'static/js/scl.min.js': ['lib/client/js/*'],
                     'static/js/vendor.min.js': ['lib/client/vendor/*']
@@ -31,44 +32,44 @@ module.exports = function (grunt) {
         },
 
         // We use this to make sure our JS files follow our spec
-        jshint: 
+        jshint:
         {
-            server: 
+            server:
             {
                 src: ['./*.js', 'lib/*.js'],
-                options: 
-                { 
-                    'node': true,
-                    'quotmark': 'single',
+                options:
+                {
+                    'jshintrc': true,
+                    'ignores': 'newrelic.js'
                 }
             },
             client:
             {
                 src: ['lib/client/js/*'],
-                options: 
-                { 
-                    'globalstrict': true,
-                    'quotmark': 'single',
+                options:
+                {
+                    'jshintrc': true,
+                    'ignores': 'newrelic.js'
                 }
             }
         },
 
         // Watch for changes to trigger events
-        watch: 
+        watch:
         {
-            client:  
-            { 
-                files: ['lib/client/**/*.js', 'lib/*.js', './*.js' ], 
-                tasks: [ 'jshint', 'uglify'] 
+            client:
+            {
+                files: ['lib/client/**/*.js', 'lib/*.js', './*.js' ],
+                tasks: [ 'jshint', 'uglify']
             },
         },
 
         // restart node server, if necessary
-        nodemon: 
+        nodemon:
         {
-            dev: 
+            dev:
             {
-                options: 
+                options:
                 {
                     file: 'app.js',
                 }
@@ -78,10 +79,10 @@ module.exports = function (grunt) {
         // This allows us to concurrently watch JS for tasks and nodemon to restart
         concurrent:
         {
-            dev: 
+            dev:
             {
                 tasks: ['nodemon', 'watch'],
-                options: 
+                options:
                 {
                     logConcurrentOutput: true
                 }
