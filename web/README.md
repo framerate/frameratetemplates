@@ -1,1 +1,5 @@
-This is a template for new node.js express3 based web projects.
+# Secret Cow Level Workflow
+
+* ExpressJS Web Server
+* Gruntjs Task Automation
+* Bower client management
