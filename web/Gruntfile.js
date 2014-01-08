@@ -14,19 +14,26 @@ module.exports = function (grunt) {
         // this will uglify/minify/concat our files
         uglify:
         {
-            options:
+            scl:
             {
-                mangle: true,
-                compress: true,
-                banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-                        '<%= grunt.template.today("yyyy-mm-dd") %> */'
+                src: ['lib/client/js/*.js'],
+                dest: 'static/js/scl.min.js',
+                options: {
+                    mangle: false,
+                    compress: false,
+                    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                    '<%= grunt.template.today("yyyy-mm-dd") %> */'
+                }
             },
-            js:
+            vendor:
             {
-                files:
-                {
-                    'static/js/scl.min.js': ['lib/client/js/*'],
-                    'static/js/vendor.min.js': ['lib/client/vendor/*']
+                src: ['lib/client/vendor/*.js'],
+                dest: 'static/js/vendor.min.js',
+                options: {
+                    mangle: false,
+                    compress: false,
+                    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - thirdparty requirements - ' +
+                    '<%= grunt.template.today("yyyy-mm-dd") %> */'
                 }
             }
         },
@@ -87,6 +94,35 @@ module.exports = function (grunt) {
                     logConcurrentOutput: true
                 }
             }
+        },
+        bower: {
+            dev: {
+                dest: 'lib/client/vendor'
+            }
+        },
+        jsbeautifier : {
+            files : ['app.js', 'lib/*.js', 'lib/client/*.js'],
+            options : {
+                js: {
+                    braceStyle: 'end-expand',
+                    breakChainedMethods: false,
+                    e4x: false,
+                    evalCode: false,
+                    indentChar: ' ',
+                    indentLevel: 1,
+                    indentSize: 4,
+                    indentWithTabs: false,
+                    jslintHappy: false,
+                    keepArrayIndentation: false,
+                    keepFunctionIndentation: false,
+                    maxPreserveNewlines: 10,
+                    preserveNewlines: true,
+                    spaceBeforeConditional: true,
+                    spaceInParen: false,
+                    unescapeStrings: false,
+                    wrapLineLength: 80
+                }
+            }
         }
     });
 
@@ -97,7 +133,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks('grunt-bower');
 
     // Register the tasks to run
-    grunt.registerTask('default', [ 'jshint', 'uglify', 'concurrent' ]);
+    grunt.registerTask('default', [ 'jshint', 'bower', 'uglify', 'concurrent' ]);
 };

@@ -16,6 +16,8 @@
     "grunt-nodemon": "~0.1.1",
     "grunt-contrib-jshint": "~0.7.1",
     "grunt-concurrent": "~0.4.1",
-    "grunt-notify": "~0.2.16"
+    "grunt-notify": "~0.2.16",
+    "grunt-bower": "~0.7.0",
+    "grunt-jsbeautifier": "~0.2.6"
   }
 }

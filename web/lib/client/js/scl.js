@@ -13,7 +13,6 @@
     };
 
     // @TODO add node.js support
-    
     scl.VERSION = '0.0.1';
 
     ///////////////////////////////
