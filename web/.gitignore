@@ -13,3 +13,6 @@ results
 
 npm-debug.log
 node_modules
+lib/client/vendor/js/*.js
+lib/client/vendor/css/*.css
+
