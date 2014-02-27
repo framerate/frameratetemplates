@@ -1,6 +1,4 @@
-*/node_modules/*
-.DS_Store
-build/*
-web/bower_components/*
-web/lib/client/vendor/*.js
-web/lib/client/vendor/*
+*.log
+**/.DS_Store
+node_modules
+bower_components

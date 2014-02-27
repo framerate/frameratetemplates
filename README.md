@@ -1,4 +1,5 @@
-scltemplates
-============
+# Secret Cow Level Workflow
 
-Starting off points for building new applications
+* ExpressJS Web Server
+* Gruntjs Task Automation
+* Bower client management

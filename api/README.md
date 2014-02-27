@@ -1,1 +1,0 @@
-This is a template for new node.js express3 based web projects.
