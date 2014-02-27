@@ -29,7 +29,7 @@ module.exports = function (grunt) {
             },
             'vendor':
             {
-                'src': ['lib/client/vendor/*.js'],
+                'src': ['lib/client/vendor/js/*.js'],
                 'dest': 'static/js/vendor.min.js',
                 'options': {
                     'mangle': false,
