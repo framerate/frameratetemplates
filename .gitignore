@@ -2,3 +2,7 @@
 **/.DS_Store
 node_modules
 bower_components
+
+# Ignore everything in lib/client/vendor except the readme!
+lib/client/vendor/*
+!lib/client/vendor/*.md
