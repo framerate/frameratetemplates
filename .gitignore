@@ -3,3 +3,4 @@
 build/*
 web/bower_components/*
 web/lib/client/vendor/*.js
+web/lib/client/vendor/*

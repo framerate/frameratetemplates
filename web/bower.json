@@ -19,6 +19,8 @@
   ],
   "dependencies": {
     "jquery": "~2.0.3",
-    "signet": "~0.4.5"
+    "signet": "~0.4.5",
+    "font-awesome": "~4.0.3",
+    "bootstrap": "~3.1.1"
   }
 }
