@@ -29,7 +29,11 @@ module.exports = function (grunt) {
             },
             'vendor':
             {
-                'src': ['lib/client/vendor/js/*.js'],
+                'src': [
+                    'lib/client/vendor/js/jquery.js',
+                    'lib/client/vendor/js/bootstrap.js',
+                    'lib/client/vendor/js/signet.js',
+                ],
                 'dest': 'static/js/vendor.min.js',
                 'options': {
                     'mangle': false,
