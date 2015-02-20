@@ -1,1 +1,0 @@
-All files in here come from bower, so this folder is intentionally blank.
