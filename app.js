@@ -25,7 +25,7 @@ var session             = require('express-session');
 var bodyParser          = require('body-parser');
 
 var sessionConfig = {
-    'secret': 'ronburgundy!',
+    'secret': 'bananas!',
     'resave': false,
     'saveUninitialized': false
 };
