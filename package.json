@@ -4,31 +4,25 @@
   "author": "justin@secretcowlevel.com",
   "private": "true",
   "dependencies": {
-    "body-parser": "^1.12.0",
-    "colors": "^1.0.3",
-    "connect-flash": "^0.1.1",
-    "ejs": "~2.2.4",
-    "express": "~4.11.2",
-    "express-session": "^1.10.3",
-    "mongoose": "~3.8.23",
-    "newrelic": "~1.16.2",
-    "passport": "^0.2.1",
+    "express": "~3.4.8",
+    "ejs": "~0.8.5",
+    "mongoose": "~3.8.8",
+    "underscore": "~1.6.0",
+    "passport": "^0.2.0",
     "passport-facebook": "^1.0.3",
-    "serve-static": "^1.9.1",
-    "underscore": "~1.8.0"
+    "connect-flash": "^0.1.1"
   },
-  "version": "0.3.0",
+  "version": "0.2.0",
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-bower": "~0.17.0",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-cssmin": "~0.12.1",
-    "grunt-contrib-jshint": "~0.11.0",
-    "grunt-contrib-uglify": "~0.8.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-express-server": "~0.4.19",
-    "grunt-jsbeautifier": "~0.2.8",
-    "grunt-notify": "~0.4.1",
-    "load-grunt-tasks": "~3.1.0"
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-notify": "~0.2.17",
+    "grunt-bower": "~0.9.0",
+    "grunt-jsbeautifier": "~0.2.6",
+    "load-grunt-tasks": "~0.4.0",
+    "grunt-express-server": "~0.4.13",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-cssmin": "~0.9.0"
   }
 }

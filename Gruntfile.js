@@ -32,8 +32,6 @@ module.exports = function (grunt) {
                 'src': [
                     'lib/client/vendor/js/jquery.js',
                     'lib/client/vendor/js/bootstrap.js',
-                    'lib/client/vendor/js/underscore.js',
-                    'lib/client/vendor/js/backbone.js',
                     'lib/client/vendor/js/signet.js',
                 ],
                 'dest': 'static/js/vendor.min.js',
@@ -71,6 +69,13 @@ module.exports = function (grunt) {
 
         // Watch for changes to trigger events
         'watch': {
+            // 'everything': {
+            //     'files': ['*.js', 'lib/**/*.js', 'lib/**/*.css', 'lib/client/js/*.js', 'views/*.ejs'],
+            //     'tasks': [ 'default'],
+            //     'options': {
+            //         'spawn': false
+            //     }
+            // },
             'frontEnd': {
                 'files': ['lib/client/js/*.js', 'lib/client/css/*.css'],
                 'tasks': ['frontEnd'],
@@ -106,33 +111,26 @@ module.exports = function (grunt) {
                 'dest': 'lib/client/vendor',
                 'js_dest': 'lib/client/vendor/js',
                 'css_dest': 'lib/client/vendor/css',
-                'fonts_dest': 'lib/client/vendor/fonts/',
                 'options': {
-                    'keepExpandedHierarchy': false
+                    'packageSpecific':
+                    {
+                        'bootstrap': {
+                            'files': [
+                                'dist/css/bootstrap.css'
+                            ]
+                        },
+                        'font-awesome': {
+                            'files': [
+                                'css/font-awesome.css',
+                                'fonts/fontawesome-webfont.eot',
+                                'fonts/fontawesome-webfont.svg',
+                                'fonts/fontawesome-webfont.ttf',
+                                'fonts/fontawesome-webfont.woff'
+                            ],
+                            'dest': 'static/fonts/'
+                        }
+                    }
                 }
-            }
-        },
-
-        'clean': {
-            'build': {
-                'src': [
-                    'lib/client/vendor/**/*',
-                    '!lib/client/vendor/_USE_BOWER_.md',
-                    'static/css/*',
-                    'static/js/*',
-                    'static/fonts/*'
-                ]
-            },
-            'all': {
-                'src': [
-                    'lib/client/vendor/**/*',
-                    '!lib/client/vendor/_USE_BOWER_.md',
-                    'static/css/*',
-                    'static/js/*',
-                    'static/fonts/*',
-                    'bower_components',
-                    'node_modules'
-                ]
             }
         },
 
@@ -179,7 +177,7 @@ module.exports = function (grunt) {
     });
 
     // Register the tasks to run
-    grunt.registerTask('default', [ 'jshint', 'clean:build', 'bower', 'uglify', 'cssmin', 'express:dev', 'watch' ]);
+    grunt.registerTask('default', [ 'jshint', 'bower', 'uglify', 'cssmin', 'express:dev', 'watch' ]);
     grunt.registerTask('frontEnd', [ 'jshint', 'uglify', 'cssmin', 'watch' ]);
     grunt.registerTask('backEnd', [ 'jshint', 'bower', 'express:dev', 'watch' ]);
 };
