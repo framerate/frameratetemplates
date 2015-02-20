@@ -106,7 +106,7 @@ module.exports = function (grunt) {
                 'dest': 'lib/client/vendor',
                 'js_dest': 'lib/client/vendor/js',
                 'css_dest': 'lib/client/vendor/css',
-                'fonts_dest': 'lib/client/vendor/fonts/',
+                'fonts_dest': 'static/fonts/',
                 'options': {
                     'keepExpandedHierarchy': false
                 }
@@ -140,12 +140,12 @@ module.exports = function (grunt) {
             'add_banner': {
                 'options': {
                     'banner': '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-                    '<%= grunt.template.today("yyyy-mm-dd") %> */'
+                    '<%= grunt.template.today("yyyy-mm-dd") %> */',
+                    'noRebase': true
                 },
                 'files': {
                     'static/css/scl.min.css': [
                         'lib/client/vendor/css/bootstrap.css',
-                        'lib/client/vendor/css/font-awesome.css',
                         'lib/client/css/default.css'
                     ]
                 }
