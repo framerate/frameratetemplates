@@ -1,11 +1,34 @@
 'use strict';
 
+var fs = require('fs');
+require('colors');
+
+// make sure the config file exists
+if (!fs.existsSync(__dirname + '/Config.json')) {
+    console.log('Cannot start Karma Web, missing Config.json! - Creating one!'.red);
+    fs.writeFileSync(__dirname + '/Config.json',
+		fs.readFileSync(__dirname + '/Config.example.json')
+	);
+}
+
+var config = require(__dirname + '/Config.json');
+
 // third-party requires
 var mongoose = require('mongoose');
 var express = require('express');
 var passport = require('passport');
-var flash = require('connect-flash');
 var app = express();
+
+// express middleware
+var serveStatic         = require('serve-static');
+var session             = require('express-session');
+var bodyParser          = require('body-parser');
+
+var sessionConfig = {
+    'secret': 'bananas!',
+    'resave': false,
+    'saveUninitialized': false
+};
 
 // internal requires
 var config = require('./config.json');
@@ -13,14 +36,14 @@ var config = require('./config.json');
 // express settings
 app.set('views', 'views');
 app.set('view engine', 'ejs');
-app.use(express.static('static'));
-app.use(express.cookieParser('moooooooo!'));
-app.use(express.session({ key: 'sid', cookie: { maxAge: 60000 }}));
+
+app.use(serveStatic(__dirname + '/static', {'index':false}));
+app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.locals.message = '';
 
 // connect to the local database
 mongoose.connect(config.database.ip, config.database.name);
