@@ -1,11 +1,16 @@
-*.log
-**/.DS_Store
-node_modules
-bower_components
 
-# Ignore everything in lib/client/vendor except the readme!
-lib/client/vendor/*
-!lib/client/vendor/*.md
+node_modules/
+.DS_Store
+build/
+npm-debug.log
 
-# Config should not be checked in!
+_tools/pledges.json
+_tools/pledges.csv
+
 Config.json
+
+
+ConfigProduction.json
+ConfigLocal.json
+
+LAUNCHNOTES.md

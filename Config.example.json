@@ -1,21 +1,27 @@
 {
-    "project": {
-        "name": "scltemplates"
-    },
-    "database": {
-        "name": "scltemplates",
-        "ip": "127.0.0.1"
-    },
-
-    "server": {
-        "port": 3000
-    },
-
-    "social": {
-        "facebook": {
-            "appId": "",
-            "appSecret": ""
+    "databases": {
+        "mongo": {
+            "hosts": [{
+                "name": "Local Development MongoDB",
+                "server": "127.0.0.1",
+                "port": "27017"
+            }],
+            "database": "scl",
+            "user": "",
+            "password": "",
+            "options": {
+                "db": {
+                    "w": 1,
+                    "readPreference": "secondaryPreferred"
+                }
+            }
+        },
+        "redis": {
+            "name": "Local Development Redis",
+            "server": "127.0.0.1",
+            "port": "6379",
+            "password": "",
+            "database": ""
         }
-
     }
 }
